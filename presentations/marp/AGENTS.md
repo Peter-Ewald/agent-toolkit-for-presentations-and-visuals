@@ -1,0 +1,30 @@
+# Marp Agent Notes
+
+Use this folder when the task involves slide decks or Marp theming.
+
+Key files:
+
+- `themes/ramboll.css`: shared styling source.
+- `templates/ramboll_default.md`: default deck body.
+- `tools/create_default_ramboll_slide_deck.py`: bootstrap new decks.
+- `tools/apply_default_ramboll_theme_to_slide_deck.py`: regenerate inline deck
+  styling.
+- `../../docs/presentation-workflow.md`: canonical higher-level workflow doc.
+
+How to work safely:
+
+- Change the shared theme in `themes/ramboll.css` first.
+- Change shared slide archetypes in `templates/ramboll_default.md`.
+- If creating a new deck, use `create_default_ramboll_slide_deck.py` instead of
+  copying files manually.
+- After changing shared styling, run the sync helper on affected decks.
+
+Mental model:
+
+- Standalone theme CSS is the design source.
+- Deck-local inline CSS is generated for reliable preview.
+
+When not to use this folder:
+
+- If the task is about diagram source content or PNG rendering, move to
+  `../../visualisations/excalidraw/AGENTS.md`.

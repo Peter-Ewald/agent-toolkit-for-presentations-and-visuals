@@ -1,0 +1,53 @@
+{
+  "name": "ramboll",
+  "description": "Shared Ramboll Excalidraw theme aligned to the default corporate PPTX look.",
+  "canvas": {
+    "viewBackgroundColor": "#ffffff"
+  },
+  "fonts": {
+    "editorFontFamily": 2,
+    "exportFontFamily": "\"NunitoCustom\", Nunito, Verdana, \"Segoe UI\", sans-serif"
+  },
+  "text": {
+    "defaultStrokeColor": "#333333",
+    "labelBackgroundColor": "#ffffff"
+  },
+  "palette": {
+    "cyan": "#009df0",
+    "cyanSoft": "#cceafb",
+    "cyanPale": "#e5f4fd",
+    "ocean": "#05326e",
+    "forest": "#125a40",
+    "heath": "#62294b",
+    "mountain": "#273943",
+    "text": "#333333",
+    "divider": "#b1b2b3",
+    "grass": "#add095",
+    "pebble": "#e3e1d8",
+    "pebblePale": "#f9f9f7",
+    "white": "#ffffff"
+  },
+  "colorMap": {
+    "#0098eb": "#009df0",
+    "#2551b3": "#05326e",
+    "#dceaff": "#cceafb",
+    "#6d3ccf": "#05326e",
+    "#efe4ff": "#ffffff",
+    "#247a3d": "#125a40",
+    "#e7f8e9": "#eff6ea",
+    "#d06a00": "#05326e",
+    "#fff0cd": "#e6eaf0",
+    "#0c7d8f": "#0098eb",
+    "#dff7f9": "#ffffff",
+    "#b63b4b": "#125a40",
+    "#ffe0e7": "#f9f9f7",
+    "#3b4d73": "#05326e",
+    "#56657c": "#333333",
+    "#122033": "#333333",
+    "#273943": "#333333",
+    "#fffdf8": "#ffffff",
+    "#fcfcfb": "#ffffff",
+    "#6984a8": "#6984a8",
+    "#b1b2b3": "#b1b2b3"
+  }
+}
