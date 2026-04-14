@@ -2,6 +2,8 @@
 
 This folder contains reusable Marp-based deck tooling.
 
+It is a capability layer, not the task-recipe layer.
+
 Contents:
 
 - `themes/ramboll.css`: shared visual source of truth for Marp styling.
@@ -18,6 +20,7 @@ Source of truth:
 - Use `create_default_ramboll_slide_deck.py` to bootstrap a new deck.
 - Keep higher-level workflow docs in `../../docs/`, especially
   `presentation-workflow.md`.
+- Keep task-oriented recipes in `../../workflows/presentations/`.
 
 Generated behavior:
 

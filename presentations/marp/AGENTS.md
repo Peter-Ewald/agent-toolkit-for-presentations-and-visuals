@@ -2,6 +2,9 @@
 
 Use this folder when the task involves slide decks or Marp theming.
 
+If the task is phrased as a concrete job, read `../../workflows/presentations/`
+first and then use this folder as the implementation surface.
+
 Key files:
 
 - `themes/ramboll.css`: shared styling source.

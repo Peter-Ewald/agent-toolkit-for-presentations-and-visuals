@@ -3,6 +3,8 @@
 Use this folder when the task involves diagram generation, theming, or image
 export.
 
+Treat this folder as the Ramboll wrapper around the upstream Excalidraw skill.
+
 Key files:
 
 - `examples/`: source diagrams that agents should edit.
@@ -10,6 +12,7 @@ Key files:
 - `themes/RAMBOLL_GUIDANCE.md`: design intent and semantic color rules.
 - `tools/apply_excalidraw_theme.py`: preprocess source diagrams.
 - `tools/render_excalidraw.py`: render PNG output.
+- `excalidraw-diagram-skill/`: upstream methodology and renderer reference.
 - `../../docs/visualisation-workflow.md`: canonical higher-level workflow doc.
 
 How to work safely:
@@ -26,4 +29,4 @@ Expected output chain:
 When not to use this folder:
 
 - If the task is primarily about deck structure or slide styling, move to
-  `../marp/AGENTS.md`.
+  `../../presentations/marp/AGENTS.md`.

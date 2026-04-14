@@ -1,19 +1,25 @@
 # Visualisations
 
-This folder contains reusable generation tooling for visuals.
+This folder is the reusable visual capability layer of the repository.
 
-Current subdomains:
+Use this folder for:
 
-- `excalidraw/`: diagram source, theme, and PNG rendering tooling
+- provider-specific visual tooling
+- reusable visual source assets
+- shared theming and rendering logic
+- provider-level guidance that should remain presentation-agnostic
 
-Why these tools live here:
+Current providers:
 
-- They are reusable beyond a single presentation.
-- Presentations can consume their outputs, but the tools themselves should stay
-  usable independently.
+- `./excalidraw/` for Ramboll-wrapped Excalidraw diagram work
 
-Canonical docs:
+Related layers:
 
-- `../docs/repo-overview.md`
-- `../docs/visualisation-workflow.md`
-- `../docs/agent-guide.md`
+- `../workflows/visualisations/` for visual-only task recipes
+- `../workflows/combined/` for workflows that feed visuals into decks
+- `../docs/visualisation-workflow.md` for the canonical provider model
+
+Rule:
+
+- Add new providers as peer subfolders under `visualisations/` instead of
+  expanding one provider to represent all visual work.

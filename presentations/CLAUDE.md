@@ -1,6 +1,6 @@
 # Presentations Claude Notes
 
-This folder contains presentation-facing guidance and should stay lightweight.
+This folder contains presentation capabilities and should stay lightweight.
 
 Read:
 
@@ -9,5 +9,6 @@ Read:
 
 Use nested tooling docs when needed:
 
+- `../workflows/presentations/README.md`
 - `./marp/CLAUDE.md`
 - `../visualisations/excalidraw/CLAUDE.md`

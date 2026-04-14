@@ -9,6 +9,7 @@ Read first:
 
 Routing:
 
+- For task-oriented visual requests, use `../workflows/visualisations/`.
 - For Excalidraw rendering and theming, use `excalidraw/AGENTS.md`.
 
 Rule:

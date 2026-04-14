@@ -1,7 +1,7 @@
 # Presentations Agent Notes
 
-This folder is for presentation-facing guidance, not for the reusable render
-toolchains themselves.
+This folder is for reusable presentation capabilities, not for the active task
+recipes themselves.
 
 Read first:
 
@@ -10,6 +10,7 @@ Read first:
 
 Routing:
 
+- For task-oriented presentation requests, use `../workflows/presentations/`.
 - For deck tooling, use `./marp/AGENTS.md`.
 - For diagram tooling, use `../visualisations/excalidraw/AGENTS.md`.
 

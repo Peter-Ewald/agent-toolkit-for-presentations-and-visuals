@@ -9,4 +9,5 @@ Read:
 
 Move deeper as needed:
 
+- `../workflows/visualisations/README.md`
 - `excalidraw/CLAUDE.md`
