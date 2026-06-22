@@ -36,7 +36,7 @@ style: |
     font-family: "NunitoCustom", Nunito, Verdana, "Segoe UI", sans-serif;
     color: var(--ramboll-text);
     background: #ffffff;
-    padding: 34px 38px 28px 38px;
+    padding: 28px 32px 24px 46px;
     font-size: 23px;
     position: relative;
   }
@@ -44,7 +44,7 @@ style: |
   section::before {
     content: "Ramboll";
     position: absolute;
-    left: 38px;
+    left: 46px;
     bottom: 16px;
     color: var(--ramboll-title-blue);
     font-family: "NunitoCustom", Nunito, Verdana, "Segoe UI", sans-serif;
@@ -73,9 +73,9 @@ style: |
   h1 {
     color: var(--ramboll-title-blue);
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 1.85rem;
     line-height: 1.08;
-    margin: 0 0 0.9rem 0;
+    margin: 0 0 0.55rem 0;
     max-width: 11.5em;
   }
 
@@ -117,7 +117,7 @@ style: |
   section.lead::before {
     content: "";
     position: absolute;
-    left: 38px;
+    left: 46px;
     bottom: 18px;
     width: 224px;
     height: 31px;
@@ -151,13 +151,13 @@ style: |
   }
 
   section.diagram h1 {
-    font-size: 2rem;
+    font-size: 1.85rem;
     max-width: none;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.35rem;
   }
 
   section.diagram p {
-    margin: 0.1rem 0 0.4rem;
+    margin: 0.05rem 0 0.2rem;
   }
 
   section.diagram img {
@@ -175,10 +175,10 @@ style: |
   section.image-right .columns {
     display: grid;
     grid-template-columns: 1.03fr 0.97fr;
-    gap: 36px;
+    gap: 24px;
     width: 100%;
     align-items: center;
-    margin-top: 0.2rem;
+    margin-top: 0;
   }
 
   section.image-right .copy-panel {
@@ -195,9 +195,10 @@ style: |
 
   section.image-right .media-panel img {
     display: block;
-    width: auto;
+    width: 100%;
     max-width: 100%;
-    max-height: 405px;
+    max-height: 540px;
+    object-fit: contain;
     border: none;
   }
 
@@ -207,24 +208,143 @@ style: |
 
   section.full-image {
     min-height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   section.full-image .hero-image {
-    width: 100%;
+    width: calc(100% + 28px);
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.3rem;
+    min-height: 0;
+    margin-top: 0;
+    margin-left: -14px;
   }
 
   section.full-image img {
     display: block;
-    width: auto;
+    width: 100%;
     max-width: 100%;
-    max-height: 420px;
+    max-height: 675px;
+    object-fit: contain;
     margin: 0 auto;
     border: none;
+  }
+
+  section.vertical-stack h1 {
+    max-width: none;
+  }
+
+  section.vertical-stack .stack {
+    display: grid;
+    grid-template-rows: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    gap: 18px;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  section.vertical-stack .stack-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    border: 1px solid rgba(5, 50, 110, 0.12);
+    border-radius: 16px;
+    background: #fcfcfb;
+    padding: 10px 14px;
+  }
+
+  section.vertical-stack .stack-panel img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 255px;
+    object-fit: contain;
+    border: none;
+  }
+
+  section.vertical-split h1 {
+    max-width: none;
+  }
+
+  section.vertical-split .stack {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 16px;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  section.vertical-split .copy-panel {
+    display: block;
+  }
+
+  section.vertical-split .copy-panel ul {
+    max-width: none;
+    margin-top: 0;
+  }
+
+  section.vertical-split .media-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+
+  section.vertical-split .media-panel img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 355px;
+    object-fit: contain;
+    border: none;
+  }
+
+  section.vertical-stack-75 h1 {
+    max-width: none;
+  }
+
+  section.vertical-stack-75 .stack {
+    display: grid;
+    grid-template-rows: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 14px;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  section.vertical-stack-75 .stack-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  section.vertical-stack-75 .stack-panel img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border: none;
+  }
+
+  section.vertical-stack-75 .stack-panel:first-child img {
+    max-height: 350px;
+  }
+
+  section.vertical-stack-75 .stack-panel:last-child img {
+    max-height: 165px;
   }
 
   section.statement {
