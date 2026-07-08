@@ -12,16 +12,12 @@ dropped before any of it was built, in favor of a working Claude Code harness (`
 
 ## Recommended Wave Progression
 
-1. **Harness finalization.** Remove the temporary `@~/Projects/agents/CLAUDE.md` import from
-   this repo's root `CLAUDE.md` once its own instructions and skills are complete and
-   self-sufficient — that import exists only to carry shared wave/plan-mode conventions during
-   the harness build-out, not as a permanent dependency for other agents opening this repo.
-2. **Workflows layer refresh.** Run last, since it documents the settled shape the wave above
-   produces. `workflows/*/README.md` currently routes to capability entry points that have
-   already drifted once (`workflows/visualisations/README.md` lists `apply_theme.py`/`render.py`
-   as the two command-level entry points but not `elements.py`, which is actually where every
-   diagram build starts now, or `setup.sh`) — a symptom of `workflows/` staying prose-only with
-   nothing checking it against the capability layer it describes. This wave:
+1. **Workflows layer refresh.** `workflows/*/README.md` currently routes to capability entry
+   points that have already drifted once (`workflows/visualisations/README.md` lists
+   `apply_theme.py`/`render.py` as the two command-level entry points but not `elements.py`,
+   which is actually where every diagram build starts now, or `setup.sh`) — a symptom of
+   `workflows/` staying prose-only with nothing checking it against the capability layer it
+   describes. This wave:
    - Rewrites every `workflows/*/README.md` command-level entry point list against what each
      capability actually exposes today, including `elements.py` and
      `.claude/skills/diagram-excalidraw/scripts/setup.sh`.
