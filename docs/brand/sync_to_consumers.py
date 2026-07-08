@@ -25,8 +25,9 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 BRAND_DIR = Path(__file__).resolve().parent
 COLORS_SCSS_PATH = BRAND_DIR / "colours" / "colors.scss"
 FONTS_DIR = BRAND_DIR / "fonts"
-EXCALIDRAW_THEME_PATH = REPO_ROOT / "visualisations" / "excalidraw" / "themes" / "ramboll-theme.json"
-EXCALIDRAW_RENDER_TEMPLATE_PATH = REPO_ROOT / "visualisations" / "excalidraw" / "tools" / "render_template.html"
+EXCALIDRAW_SKILL_DIR = REPO_ROOT / ".claude" / "skills" / "diagram-excalidraw"
+EXCALIDRAW_THEME_PATH = EXCALIDRAW_SKILL_DIR / "references" / "ramboll-theme.json"
+EXCALIDRAW_RENDER_TEMPLATE_PATH = EXCALIDRAW_SKILL_DIR / "scripts" / "render_template.html"
 MARP_THEME_PATH = REPO_ROOT / "presentations" / "marp" / "themes" / "ramboll.css"
 
 # Excalidraw theme palette keys, resolved from docs/brand/colours/colors.scss tokens.

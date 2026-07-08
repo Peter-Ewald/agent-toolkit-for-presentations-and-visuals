@@ -13,8 +13,8 @@ Purpose:
 How presentation work uses the toolchains:
 
 1. Create or update deck content with the Marp tooling in `presentations/marp/`.
-2. Create or update diagrams and slide-ready graphics with
-   `visualisations/excalidraw/`.
+2. Create or update diagrams and slide-ready graphics with the
+   `.claude/skills/diagram-excalidraw/` skill.
 3. Reference rendered assets from the presentation deck.
 
 How the workflow layer fits:
@@ -35,7 +35,8 @@ Why the Marp sync step exists:
 
 Separation of concerns:
 
-- `visualisations/` owns reusable generation tools.
+- `.claude/skills/` owns reusable generation tools that need injected
+  methodology, such as `diagram-excalidraw`.
 - `presentations/` owns deck tooling, presentation-facing usage guidance, and
   context.
 - `workflows/` owns action-oriented recipes built on top of those capabilities.

@@ -7,7 +7,6 @@ Canonical docs live in:
 - `docs/repo-overview.md`
 - `docs/agent-guide.md`
 - `docs/workflow-layer.md`
-- `docs/visualisation-workflow.md`
 - `docs/presentation-workflow.md`
 
 Rules:
@@ -26,6 +25,6 @@ Routing:
 
 - For task-oriented requests such as "create", "apply", "render", or
   "update and export", go to `workflows/README.md`.
-- For diagram or image work, go to `visualisations/AGENTS.md`.
+- For diagram or image work, go to `.claude/skills/diagram-excalidraw/`.
 - For presentation-facing workflow or deck-usage guidance, go to
   `presentations/AGENTS.md`.

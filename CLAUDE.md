@@ -12,7 +12,7 @@ Read first:
 Working model:
 
 - `docs/` contains canonical human docs.
-- `presentations/` and `visualisations/` contain reusable capabilities.
+- `presentations/` and `.claude/skills/` contain reusable capabilities.
 - `workflows/` contains task-oriented recipes.
 - `AGENTS.md` and `CLAUDE.md` files are short adapters that point to those docs
   and layers.
@@ -23,4 +23,4 @@ Subtree routing:
 
 - `workflows/` for explicit deliverable-oriented flows.
 - `presentations/` for presentation-facing guidance and usage.
-- `visualisations/` for reusable generation tools and render workflows.
+- `.claude/skills/` for reusable generation tools and render workflows.

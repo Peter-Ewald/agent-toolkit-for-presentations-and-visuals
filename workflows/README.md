@@ -14,5 +14,5 @@ Workflow families:
 Rule:
 
 - Keep the underlying implementation details in `presentations/` and
-  `visualisations/`.
+  `.claude/skills/`.
 - Keep the task framing and step order here.

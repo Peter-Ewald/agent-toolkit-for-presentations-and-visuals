@@ -12,7 +12,9 @@ This repository is organized as three layers:
 
 - `docs/`: canonical standards, architecture, and decision records, including
   the Ramboll brand kit (colors, fonts, logos) under `docs/brand/`.
-- `presentations/` and `visualisations/`: reusable capability layers.
+- `presentations/` and `.claude/skills/`: reusable capability layers —
+  `presentations/` for plain shared assets and scripts, `.claude/skills/` for
+  capabilities that need Claude Code's own skill methodology.
 - `workflows/`: active task recipes that tell an agent how to perform a
   concrete job.
 
@@ -20,10 +22,8 @@ Current capabilities:
 
 - `docs/brand/`: the canonical Ramboll color, font, and logo kit that the
   capability layers below derive their brand values from.
-- `visualisations/excalidraw/`: Ramboll-specific wrapper for Excalidraw diagram
-  creation, theming, and PNG rendering.
-- `visualisations/excalidraw/excalidraw-diagram-skill/`: cloned upstream skill
-  kept as a reusable reference and future sync point.
+- `.claude/skills/diagram-excalidraw/`: Ramboll-specific Excalidraw diagram
+  creation, theming, and PNG rendering, with correct native bindings.
 - `presentations/marp/`: Ramboll Marp themes, templates, and deck bootstrap
   and theme-application scripts.
 
@@ -33,8 +33,8 @@ Use the layers like this:
    model.
 2. Go to `workflows/` when the task is phrased as a deliverable, such as
    "create a new Ramboll deck" or "render this Excalidraw file to PNG".
-3. Go to `presentations/` or `visualisations/` when the task is about improving
-   shared tooling, themes, templates, or reusable assets.
+3. Go to `presentations/` or `.claude/skills/` when the task is about
+   improving shared tooling, themes, templates, or reusable assets.
 
 The repository is intentionally split so that:
 

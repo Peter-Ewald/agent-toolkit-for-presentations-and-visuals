@@ -11,7 +11,7 @@ Current recipe types:
 Implementation surfaces:
 
 - `../../presentations/marp/`
-- `../../visualisations/excalidraw/`
+- `../../.claude/skills/diagram-excalidraw/`
 
 Rule:
 

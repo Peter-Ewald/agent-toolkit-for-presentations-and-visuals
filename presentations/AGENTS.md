@@ -12,7 +12,7 @@ Routing:
 
 - For task-oriented presentation requests, use `../workflows/presentations/`.
 - For deck tooling, use `./marp/AGENTS.md`.
-- For diagram tooling, use `../visualisations/excalidraw/AGENTS.md`.
+- For diagram tooling, use `../.claude/skills/diagram-excalidraw/`.
 
 Rule:
 

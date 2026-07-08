@@ -16,7 +16,8 @@ Repository model:
 
 - `docs/`: canonical standards, architecture, and repository decisions.
 - `presentations/`: presentation capability layer.
-- `visualisations/`: reusable visual capability layer.
+- `.claude/skills/`: Claude Code skills for capabilities that need injected
+  methodology, not just scripts and assets.
 - `workflows/`: active workflow layer for concrete tasks.
 
 Ownership boundaries:
@@ -28,8 +29,10 @@ Ownership boundaries:
   and Marp theme files; run it after editing `docs/brand/colours/colors.scss`.
 - `presentations/` owns shared presentation assets such as Marp themes,
   templates, and presentation-oriented examples.
-- `visualisations/` owns reusable visual providers, their themes, and their
-  render pipelines.
+- `.claude/skills/` owns reusable visual providers that need their own design
+  methodology — currently `diagram-excalidraw`, covering Excalidraw theming
+  and render pipelines. A provider that's just scripts and assets without a
+  methodology worth injecting doesn't need to be a skill.
 - `workflows/` owns task recipes that compose one or more capabilities into a
   user-facing action.
 
@@ -39,9 +42,8 @@ Current capabilities:
   guidelines, `NunitoCustom` font files, logo SVGs).
 - `presentations/marp/` for Ramboll Marp themes, templates, deck bootstrap,
   and theme application.
-- `visualisations/excalidraw/` for Ramboll Excalidraw theming and rendering.
-- `visualisations/excalidraw/excalidraw-diagram-skill/` as an upstream skill
-  snapshot that the Ramboll wrapper can reuse and later track more formally.
+- `.claude/skills/diagram-excalidraw/` for Ramboll Excalidraw diagram design
+  methodology, theming, and PNG rendering.
 
 Examples of the workflow layer:
 
@@ -55,5 +57,6 @@ Design principles:
 - Standards should stay stable even when tooling changes.
 - Capabilities should be reusable outside any single workflow.
 - Workflows should reference capabilities rather than hide or duplicate them.
-- Upstream third-party skills should remain recognizable as upstream so local
-  wrappers can stay small and maintainable.
+- When a skill's methodology is adapted from a third-party project, credit the
+  origin in that skill's own docs rather than keeping an in-tree copy of the
+  original around as a separate reference.

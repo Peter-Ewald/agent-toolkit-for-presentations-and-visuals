@@ -35,4 +35,4 @@ Mental model:
 When not to use this folder:
 
 - If the task is about diagram source content or PNG rendering, move to
-  `../../visualisations/excalidraw/AGENTS.md`.
+  `../../.claude/skills/diagram-excalidraw/`.

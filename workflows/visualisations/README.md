@@ -10,13 +10,9 @@ Current recipe types:
 
 Implementation surface:
 
-- `../../visualisations/excalidraw/`
+- `../../.claude/skills/diagram-excalidraw/`
 
 Current command-level entry points:
 
-- `../../visualisations/excalidraw/tools/apply_excalidraw_theme.py`
-- `../../visualisations/excalidraw/tools/render_excalidraw.py`
-
-Upstream reference:
-
-- `../../visualisations/excalidraw/excalidraw-diagram-skill/`
+- `../../.claude/skills/diagram-excalidraw/scripts/apply_theme.py`
+- `../../.claude/skills/diagram-excalidraw/scripts/render.py`

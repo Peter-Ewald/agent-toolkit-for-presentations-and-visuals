@@ -255,7 +255,7 @@ style: |
 
 - This deck demonstrates the two main visual patterns in the Ramboll default
   deck
-- Both graphics are produced from source in `visualisations/excalidraw/`
+- Both graphics are produced by the `.claude/skills/diagram-excalidraw/` skill
 
 ---
 <!-- _class: image-right -->
@@ -267,12 +267,12 @@ style: |
 
 - Use the left column for the narrative or takeaway
 - Use the right column for the rendered supporting diagram
-- Keep the graphic sourced from `visualisations/`, not hand-drawn in the deck
+- Keep the graphic sourced from the diagram skill, not hand-drawn in the deck
 
 </div>
 <div class="media-panel">
 
-![w:100%](../../visualisations/excalidraw/examples/rendered/standard_deck_split.png)
+![w:100%](../../.claude/skills/diagram-excalidraw/examples/rendered/standard_deck_split.png)
 
 </div>
 </div>
@@ -284,6 +284,6 @@ style: |
 
 <div class="hero-image">
 
-![w:100%](../../visualisations/excalidraw/examples/rendered/standard_deck_full.png)
+![w:100%](../../.claude/skills/diagram-excalidraw/examples/rendered/standard_deck_full.png)
 
 </div>

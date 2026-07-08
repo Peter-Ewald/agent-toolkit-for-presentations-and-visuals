@@ -11,4 +11,4 @@ Use nested tooling docs when needed:
 
 - `../workflows/presentations/README.md`
 - `./marp/CLAUDE.md`
-- `../visualisations/excalidraw/CLAUDE.md`
+- `../.claude/skills/diagram-excalidraw/SKILL.md`

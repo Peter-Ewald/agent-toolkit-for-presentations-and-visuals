@@ -254,8 +254,8 @@ style: |
 # Example Deck Using A Shared Visual Asset
 
 - This deck lives under `presentations/`
-- The graphic is produced from source under `visualisations/excalidraw/`
-- It shows how the two subtrees work together without mixing ownership
+- The graphic is produced by the `.claude/skills/diagram-excalidraw/` skill
+- It shows how the two capability layers work together without mixing ownership
 
 ---
 <!-- _class: full-image -->
@@ -264,6 +264,6 @@ style: |
 
 <div class="hero-image">
 
-![w:100%](../../visualisations/excalidraw/examples/rendered/standard_deck_split.png)
+![w:100%](../../.claude/skills/diagram-excalidraw/examples/rendered/standard_deck_split.png)
 
 </div>
