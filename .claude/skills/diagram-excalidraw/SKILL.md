@@ -225,10 +225,11 @@ You cannot judge a diagram from JSON alone. After building or editing the diagra
 ### First-Time Setup
 
 ```bash
-cd .claude/skills/diagram-excalidraw/scripts
-uv sync
-uv run playwright install chromium
+.claude/skills/diagram-excalidraw/scripts/setup.sh
 ```
+
+If `uv run`/`playwright` commands fail with a path or interpreter error, see `README.md`'s "If
+setup breaks after moving this folder" — `rm -rf .venv && ./setup.sh` from `scripts/` fixes it.
 
 ### How to Render
 

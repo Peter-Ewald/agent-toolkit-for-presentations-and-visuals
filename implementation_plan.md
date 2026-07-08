@@ -12,13 +12,24 @@ dropped before any of it was built, in favor of a working Claude Code harness (`
 
 ## Recommended Wave Progression
 
-1. **Environment setup script.** A one-shot `uv sync && uv run playwright install chromium`
-   script plus a short troubleshooting note for the "stale `.venv` after a directory move"
-   failure mode, so the next agent doesn't have to rediscover the fix by hand.
-2. **Harness finalization.** Remove the temporary `@~/Projects/agents/CLAUDE.md` import from
+1. **Harness finalization.** Remove the temporary `@~/Projects/agents/CLAUDE.md` import from
    this repo's root `CLAUDE.md` once its own instructions and skills are complete and
    self-sufficient — that import exists only to carry shared wave/plan-mode conventions during
    the harness build-out, not as a permanent dependency for other agents opening this repo.
+2. **Workflows layer refresh.** Run last, since it documents the settled shape the wave above
+   produces. `workflows/*/README.md` currently routes to capability entry points that have
+   already drifted once (`workflows/visualisations/README.md` lists `apply_theme.py`/`render.py`
+   as the two command-level entry points but not `elements.py`, which is actually where every
+   diagram build starts now, or `setup.sh`) — a symptom of `workflows/` staying prose-only with
+   nothing checking it against the capability layer it describes. This wave:
+   - Rewrites every `workflows/*/README.md` command-level entry point list against what each
+     capability actually exposes today, including `elements.py` and
+     `.claude/skills/diagram-excalidraw/scripts/setup.sh`.
+   - Adds a `workflows/` recipe pointing at `setup.sh`, so "set this repo up" is itself a
+     documented task, not something only the skill's own `README.md` mentions.
+   - Decides, and documents the decision either way, whether each workflow family gets a real
+     one-command helper script or stays a documentation-only routing layer on purpose — and
+     updates `docs/workflow-layer.md` to state that decision explicitly instead of leaving it open.
 
 ---
 
@@ -31,8 +42,6 @@ These items are useful but not blocking the wave progression above:
 - Add CI or a local verification script that catches broken references between workflow docs
   and capability files — a manual cross-reference sweep has already found stale paths drifting
   silently more than once.
-- Add workflow-oriented helper scripts so the recipes documented under `workflows/` can be run
-  with consistent commands instead of only being described in prose.
 - Define the minimum contract a new visual provider skill should follow (source format, theme
   assets, render/export tool, provider-level workflow doc) using `diagram-excalidraw` as the
   reference implementation, before adding a second provider (draw.io, matplotlib, ...). No second

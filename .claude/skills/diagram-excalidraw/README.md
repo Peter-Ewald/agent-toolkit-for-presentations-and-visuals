@@ -13,10 +13,16 @@ As a repo-wide backstop, `../../hooks/validate_excalidraw_bindings.py` runs on e
 ## Setup
 
 ```bash
-cd .claude/skills/diagram-excalidraw/scripts
-uv sync
-uv run playwright install chromium
+.claude/skills/diagram-excalidraw/scripts/setup.sh
 ```
+
+### If setup breaks after moving this folder
+
+`uv run`/`playwright` commands failing with a path or interpreter error usually means `scripts/`
+was moved or renamed without also refreshing its `.venv` — a `uv`-managed virtual environment
+caches the absolute path of the project directory it was created in, and moving that directory
+invalidates it. This happened once already when this skill moved from
+`visualisations/excalidraw/tools/` into its current location. Fix: `rm -rf .venv && ./setup.sh`.
 
 ## File Structure
 
@@ -24,6 +30,7 @@ uv run playwright install chromium
 diagram-excalidraw/
   SKILL.md                          # Design methodology + workflow (what Claude reads)
   scripts/
+    setup.sh                        # One-shot environment setup — run this first
     elements.py                     # Binding-safe element builder — see its docstrings
     apply_theme.py                  # Optional color/font normalization pass
     render.py                       # Render .excalidraw to PNG (Playwright + headless Chromium)
