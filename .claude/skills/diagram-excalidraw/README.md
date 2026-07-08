@@ -8,6 +8,8 @@ Ask Claude to create a diagram (e.g. "create an Excalidraw diagram showing how t
 
 Excalidraw's native bindings — `startBinding`/`endBinding` on arrows, reciprocal `boundElements` entries, shared `groupIds` for label+shape pairs — are easy to get wrong by hand and impossible to tell apart from a broken diagram just by reading the JSON. Before `scripts/elements.py` existed, every element in this skill's own example diagrams had empty `groupIds` and null bindings — the diagrams looked right when rendered but had zero live structure. `scripts/elements.py` is a small, tested builder module (`rect()`, `text()`, `arrow()`, `labeled_rect()`, `group()`) that always produces the correct shape, so diagrams built through it are guaranteed structurally valid without anyone having to remember the binding rules.
 
+As a repo-wide backstop, `../../hooks/validate_excalidraw_bindings.py` runs on every Write/Edit to any `.excalidraw` file (wired via `../../settings.json`) and blocks the edit if bindings are broken — catching a diagram hand-patched outside `elements.py`, not just proving `elements.py`'s own output is correct.
+
 ## Setup
 
 ```bash
@@ -36,6 +38,15 @@ diagram-excalidraw/
 ```
 
 `references/ramboll-theme.json` and the embedded font in `render_template.html` are generated from `../../../docs/brand/` by `../../../docs/brand/sync_to_consumers.py` — change the brand source and re-run that script rather than editing either file directly.
+
+## Related tools
+
+If you're sketching a new diagram concept and haven't settled on a structure yet, the official
+[Excalidraw MCP](https://github.com/excalidraw/excalidraw-mcp) can generate an interactive draft
+directly in chat. It's a different tool for a different job — exploratory, chat-driven sketching
+with no brand or binding guarantees — so once the structure is settled, port it into
+`scripts/elements.py` to lock it into Ramboll branding and guarantee correct bindings before it
+ships in a deck.
 
 ## Design methodology credit
 

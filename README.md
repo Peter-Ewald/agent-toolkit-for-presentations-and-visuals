@@ -24,6 +24,8 @@ Current capabilities:
   capability layers below derive their brand values from.
 - `.claude/skills/diagram-excalidraw/`: Ramboll-specific Excalidraw diagram
   creation, theming, and PNG rendering, with correct native bindings.
+- `.claude/hooks/validate_excalidraw_bindings.py`: blocks any edit to a
+  `.excalidraw` file that breaks its native bindings, however the edit was made.
 - `presentations/marp/`: Ramboll Marp themes, templates, and deck bootstrap
   and theme-application scripts.
 

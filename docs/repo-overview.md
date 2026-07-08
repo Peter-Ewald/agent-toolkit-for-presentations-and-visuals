@@ -18,6 +18,8 @@ Repository model:
 - `presentations/`: presentation capability layer.
 - `.claude/skills/`: Claude Code skills for capabilities that need injected
   methodology, not just scripts and assets.
+- `.claude/hooks/`: automated checks that enforce a capability's own invariants
+  regardless of how a file was edited, wired up in `.claude/settings.json`.
 - `workflows/`: active workflow layer for concrete tasks.
 
 Ownership boundaries:
@@ -33,6 +35,9 @@ Ownership boundaries:
   methodology — currently `diagram-excalidraw`, covering Excalidraw theming
   and render pipelines. A provider that's just scripts and assets without a
   methodology worth injecting doesn't need to be a skill.
+- `.claude/hooks/` owns enforcement for invariants a capability can't leave to
+  discipline alone — currently `validate_excalidraw_bindings.py`, which blocks
+  a `.excalidraw` edit that breaks native bindings, however the edit was made.
 - `workflows/` owns task recipes that compose one or more capabilities into a
   user-facing action.
 
@@ -44,6 +49,8 @@ Current capabilities:
   and theme application.
 - `.claude/skills/diagram-excalidraw/` for Ramboll Excalidraw diagram design
   methodology, theming, and PNG rendering.
+- `.claude/hooks/validate_excalidraw_bindings.py` for automatic binding
+  validation on every `.excalidraw` edit, wired via `.claude/settings.json`.
 
 Examples of the workflow layer:
 

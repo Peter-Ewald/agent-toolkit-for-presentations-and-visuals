@@ -14,6 +14,10 @@ This skill's design methodology (depth assessment, visual pattern library, rende
 1. **Colors and semantic mapping**: `references/ramboll-theme.json` (machine-readable palette) and `references/ramboll_guidance.md` (which color/shape means what, and the "restrained, editorial" look this repo's decks expect). Both are generated from `../../../docs/brand/` — see that folder if a color looks wrong; don't hand-edit `ramboll-theme.json`.
 2. **Always build elements with `scripts/elements.py`, never by hand-writing JSON.** Hand-crafted Excalidraw JSON in this repo has never once produced correct bindings — this skill's own example diagrams had zero working `startBinding`/`endBinding`/`groupIds` before this module existed (every arrow was visually placed but structurally disconnected). `elements.py`'s `rect()`/`text()`/`arrow()`/`labeled_rect()`/`group()` functions set up bindings and grouping the way Excalidraw's own editor would, so a diagram built entirely from them is guaranteed structurally valid. See the module's docstrings for usage; run `uv run python elements.py` from `scripts/` to see it build and self-check a demo diagram.
 
+   If the structure isn't settled yet, the official [Excalidraw MCP](https://github.com/excalidraw/excalidraw-mcp) can generate an interactive exploratory draft in chat first — it has no brand or binding guarantees, so port the settled structure into `elements.py` before it ships in a deck.
+
+   Every Write/Edit to a `.excalidraw` file is also checked by `../../hooks/validate_excalidraw_bindings.py`, which blocks the edit if bindings are broken — a backstop against hand-patched JSON, not a reason to skip building through `elements.py` in the first place.
+
 ---
 
 ## Core Philosophy
