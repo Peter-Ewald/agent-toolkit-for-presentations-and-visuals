@@ -13,7 +13,7 @@
     "labelBackgroundColor": "#ffffff"
   },
   "palette": {
-    "cyan": "#009df0",
+    "cyan": "#0098eb",
     "cyanSoft": "#cceafb",
     "cyanPale": "#e5f4fd",
     "ocean": "#05326e",
@@ -25,10 +25,12 @@
     "grass": "#add095",
     "pebble": "#e3e1d8",
     "pebblePale": "#f9f9f7",
+    "field": "#ff8855",
+    "sand": "#ffe682",
     "white": "#ffffff"
   },
   "colorMap": {
-    "#0098eb": "#009df0",
+    "#0098eb": "#0098eb",
     "#2551b3": "#05326e",
     "#dceaff": "#cceafb",
     "#6d3ccf": "#05326e",

@@ -61,7 +61,11 @@ Presentation-template cues to preserve:
 
 Maintenance note:
 
-- Update `ramboll-theme.json` when the palette or default font choices change.
+- `ramboll-theme.json`'s `palette` and `colorMap` values, and the embedded
+  font in `../tools/render_template.html`, are generated from
+  `../../../docs/brand/colours/colors.scss` by
+  `../../../docs/brand/sync_to_consumers.py` — don't hand-edit them. Change
+  the brand source and re-run that script instead.
 - Add new semantic roles here before using them broadly in multiple diagrams.
 - If the official PPTX template changes, prefer its layout behavior over older
   generalized brand assumptions.

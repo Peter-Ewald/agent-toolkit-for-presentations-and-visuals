@@ -15,6 +15,15 @@ from pathlib import Path
 LOGO_FILE_NAME = "ramboll-logo.png"
 LOGO_PLACEHOLDER = "__RAMBOLL_LOGO_URL__"
 
+# Font weight -> (source file name under docs/brand/fonts/, placeholder in the
+# theme CSS). Kept as a local deck asset (like the logo) rather than embedded
+# as a data URI, so per-deck Markdown files stay small and diffable.
+FONT_ASSETS = {
+    "NunitoCustom-Light.ttf": "__RAMBOLL_FONT_LIGHT_URL__",
+    "NunitoCustom-Regular.ttf": "__RAMBOLL_FONT_REGULAR_URL__",
+    "NunitoCustom-Bold.ttf": "__RAMBOLL_FONT_BOLD_URL__",
+}
+
 
 def _resolve_deck_path_for_workspace(target_path: Path) -> Path:
     """Resolve a deck path against the repo or a sibling workspace folder.
@@ -66,6 +75,28 @@ def _copy_logo_asset(theme_path: Path, deck_path: Path) -> Path:
     return logo_target_path
 
 
+def _copy_font_assets(theme_path: Path, deck_path: Path) -> dict[str, Path]:
+    """Copy the shared NunitoCustom font files into the deck-local assets folder.
+
+    Mirrors `_copy_logo_asset` so the generated `@font-face` rules resolve
+    relative to the deck instead of depending on an absolute machine path.
+    """
+
+    fonts_source_directory_path = theme_path.parent.parent.parent.parent / "docs" / "brand" / "fonts"
+    assets_directory_path = deck_path.parent / "assets" / "fonts"
+    assets_directory_path.mkdir(parents=True, exist_ok=True)
+
+    target_paths: dict[str, Path] = {}
+    for font_file_name, placeholder in FONT_ASSETS.items():
+        source_path = fonts_source_directory_path / font_file_name
+        if not source_path.exists():
+            raise FileNotFoundError(f"Font not found: {source_path}")
+        target_path = assets_directory_path / font_file_name
+        shutil.copy2(source_path, target_path)
+        target_paths[placeholder] = target_path
+    return target_paths
+
+
 def _load_inline_css(theme_path: Path) -> str:
     """Load theme CSS and strip theme-registration directives for inline use.
 
@@ -96,9 +127,17 @@ def _prepare_inline_css(theme_path: Path, deck_path: Path) -> str:
     """
 
     inline_css = _load_inline_css(theme_path=theme_path)
+
     logo_target_path = _copy_logo_asset(theme_path=theme_path, deck_path=deck_path)
     relative_logo_path = logo_target_path.relative_to(deck_path.parent).as_posix()
-    return inline_css.replace(LOGO_PLACEHOLDER, relative_logo_path)
+    inline_css = inline_css.replace(LOGO_PLACEHOLDER, relative_logo_path)
+
+    font_target_paths = _copy_font_assets(theme_path=theme_path, deck_path=deck_path)
+    for placeholder, font_target_path in font_target_paths.items():
+        relative_font_path = font_target_path.relative_to(deck_path.parent).as_posix()
+        inline_css = inline_css.replace(placeholder, relative_font_path)
+
+    return inline_css
 
 
 def _replace_frontmatter(deck_text: str, inline_css: str) -> str:

@@ -2,9 +2,28 @@
 
 @import 'default';
 
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("__RAMBOLL_FONT_LIGHT_URL__") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("__RAMBOLL_FONT_REGULAR_URL__") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("__RAMBOLL_FONT_BOLD_URL__") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
-  --ramboll-cyan: #0094e3;
-  --ramboll-title-blue: #0094e3;
+  --ramboll-cyan: #0098eb;
+  --ramboll-title-blue: #0098eb;
   --ramboll-cyan-20: #cceafb;
   --ramboll-cyan-10: #e5f4fd;
   --ramboll-ocean: #05326e;

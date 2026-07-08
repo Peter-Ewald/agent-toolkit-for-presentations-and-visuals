@@ -14,3 +14,6 @@ Rules:
 - Use `tools/create_default_ramboll_slide_deck.py` to create new decks.
 - Use `tools/apply_default_ramboll_theme_to_slide_deck.py` after shared style
 	changes.
+- Don't hand-type `:root` color values or `@font-face` `src` placeholders in
+	`themes/ramboll.css` — run `../../docs/brand/sync_to_consumers.py` after
+	changing `docs/brand/colours/colors.scss` instead.

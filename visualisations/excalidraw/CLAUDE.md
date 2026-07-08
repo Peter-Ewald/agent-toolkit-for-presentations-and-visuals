@@ -15,3 +15,7 @@ Rules:
 - Re-apply the theme before rendering when needed.
 - Prefer wrapper changes here over editing the cloned upstream skill unless the
 	goal is to update the upstream snapshot itself.
+- Don't hand-type `themes/ramboll-theme.json`'s colors or
+	`tools/render_template.html`'s embedded font — run
+	`../../docs/brand/sync_to_consumers.py` after changing
+	`docs/brand/colours/colors.scss` instead.

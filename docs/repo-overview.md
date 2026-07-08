@@ -24,6 +24,8 @@ Ownership boundaries:
 - `docs/` explains what the layers are, what belongs where, and why, and owns
   `docs/brand/` — the canonical Ramboll color, font, and logo kit that every
   other layer derives its brand values from, instead of hand-copying them.
+  `docs/brand/sync_to_consumers.py` projects color changes into the Excalidraw
+  and Marp theme files; run it after editing `docs/brand/colours/colors.scss`.
 - `presentations/` owns shared presentation assets such as Marp themes,
   templates, and presentation-oriented examples.
 - `visualisations/` owns reusable visual providers, their themes, and their
