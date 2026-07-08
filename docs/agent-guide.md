@@ -35,11 +35,14 @@ Scoping model:
 - More specific instruction files should refine, not contradict, the canonical
   docs.
 
-Cross-tool portability:
+Claude Code is the primary target:
 
-- `AGENTS.md` supports Cursor and Copilot discovery.
-- `CLAUDE.md` supports Claude Code directly.
-- Keep these files aligned and brief to reduce drift.
+- `CLAUDE.md` files, `.claude/skills/`, and `.claude/hooks/` are the primary,
+  authoritative way this repository is used, and route into the `docs/` layer
+  below.
+- `AGENTS.md` files are kept as a short, generic fallback for other agents
+  that discover this repository passively. They should stay aligned with what
+  `CLAUDE.md` says and must not describe behavior specific to any other tool.
 - Do not depend on user-specific global instructions or editor-specific local
   setup outside this repository.
 

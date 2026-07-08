@@ -21,7 +21,9 @@ Repository model:
 
 Ownership boundaries:
 
-- `docs/` explains what the layers are, what belongs where, and why.
+- `docs/` explains what the layers are, what belongs where, and why, and owns
+  `docs/brand/` — the canonical Ramboll color, font, and logo kit that every
+  other layer derives its brand values from, instead of hand-copying them.
 - `presentations/` owns shared presentation assets such as Marp themes,
   templates, and presentation-oriented examples.
 - `visualisations/` owns reusable visual providers, their themes, and their
@@ -31,6 +33,8 @@ Ownership boundaries:
 
 Current capabilities:
 
+- `docs/brand/` for the canonical Ramboll color, font, and logo kit (colour
+  guidelines, `NunitoCustom` font files, logo SVGs).
 - `presentations/marp/` for Ramboll Marp themes, templates, deck bootstrap,
   and theme application.
 - `visualisations/excalidraw/` for Ramboll Excalidraw theming and rendering.

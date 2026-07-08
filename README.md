@@ -1,20 +1,25 @@
 # Visualisations Repository
 
 Agent-first repository for reusable visuals, presentation tooling, and explicit
-task workflows.
+task workflows, built primarily around Claude Code (`CLAUDE.md`,
+`.claude/skills/`, `.claude/hooks/`). `AGENTS.md` files are kept as a short,
+generic fallback for other agents that discover this repository passively.
 
 Agents should infer how to use this repository from repo-local files only. Do
 not assume any user-global or editor-global instruction files.
 
 This repository is organized as three layers:
 
-- `docs/`: canonical standards, architecture, and decision records.
+- `docs/`: canonical standards, architecture, and decision records, including
+  the Ramboll brand kit (colors, fonts, logos) under `docs/brand/`.
 - `presentations/` and `visualisations/`: reusable capability layers.
 - `workflows/`: active task recipes that tell an agent how to perform a
   concrete job.
 
 Current capabilities:
 
+- `docs/brand/`: the canonical Ramboll color, font, and logo kit that the
+  capability layers below derive their brand values from.
 - `visualisations/excalidraw/`: Ramboll-specific wrapper for Excalidraw diagram
   creation, theming, and PNG rendering.
 - `visualisations/excalidraw/excalidraw-diagram-skill/`: cloned upstream skill

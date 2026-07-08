@@ -1,0 +1,364 @@
+/* Shared Ramboll brand theme for every mkdocs site in this workspace.
+   Staged into each site's docs_dir as _theme/ before build — see
+   website/build_local_site.sh. Source of truth for values: the brand
+   exports and color_guidelines.md in website/theme/colours/. */
+
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("fonts/NunitoCustom-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("fonts/NunitoCustom-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("fonts/NunitoCustom-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("fonts/NunitoCustom-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("fonts/NunitoCustom-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NunitoCustom";
+  src: url("fonts/NunitoCustom-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+:root {
+  /* Primary */
+  --ramboll-cyan: #0098eb;
+  --ramboll-cyan-20: #cceafb;
+  --ramboll-cyan-10: #e5f4fd;
+  --ramboll-white: #ffffff;
+
+  /* Secondary */
+  --ramboll-ocean: #05326e;
+  --ramboll-forest: #125a40;
+  --ramboll-forest-10: #e7eeec;
+  --ramboll-heath: #62294b;
+  --ramboll-heath-10: #efe9ed;
+  --ramboll-mountain: #273943;
+  --ramboll-mountain-10: #e9ebec;
+  --ramboll-grass: #add095;
+  --ramboll-pebble: #e3e1d8;
+  --ramboll-pebble-20: #f9f9f7;
+
+  /* Spot colours — calls to action only, used sparingly */
+  --ramboll-field: #ff8855;
+  --ramboll-sand: #ffe682;
+
+  /* Mountain 60% — used for de-emphasized/secondary text. */
+  --ramboll-muted: #7d888e;
+}
+
+/* ---- mkdocs-material palette wiring ---- */
+/* theme.font: false in every mkdocs.yml disables the default Google Fonts
+   loading; NunitoCustom is set directly here instead. */
+[data-md-color-scheme] {
+  --md-primary-fg-color: var(--ramboll-ocean);
+  --md-primary-fg-color--light: var(--ramboll-cyan);
+  --md-primary-fg-color--dark: var(--ramboll-ocean);
+  --md-primary-bg-color: var(--ramboll-white);
+  --md-accent-fg-color: var(--ramboll-cyan);
+  --md-typeset-a-color: var(--ramboll-ocean);
+
+  /* Code blocks — mkdocs-material's own pygments defaults (generic blues,
+     greens, purples) have no relation to the brand. The container (bg/fg)
+     and per-token-type hues below are all real brand secondary colours;
+     Field/Sand are deliberately excluded — the brand guide reserves spot
+     colours for marketing calls-to-action in small doses, not dense,
+     ever-present code text. Punctuation/operators/comments stay on
+     mkdocs-material's neutral default — they're de-emphasized by design in
+     every syntax theme, brand colour would work against that. */
+  --md-code-bg-color: var(--ramboll-pebble-20);
+  --md-code-fg-color: var(--ramboll-mountain);
+  --md-code-hl-color: var(--ramboll-cyan);
+  --md-code-hl-color--light: #0098eb1a;
+  --md-code-hl-keyword-color: var(--ramboll-ocean);
+  --md-code-hl-string-color: var(--ramboll-forest);
+  --md-code-hl-function-color: var(--ramboll-heath);
+  --md-code-hl-constant-color: var(--ramboll-grass);
+  --md-code-hl-number-color: var(--ramboll-cyan);
+  --md-code-hl-special-color: var(--ramboll-heath);
+}
+
+body,
+.md-typeset {
+  font-family: "NunitoCustom", Nunito, Verdana, "Segoe UI", sans-serif;
+  font-weight: 300; /* Light — regular body text per brand scale */
+}
+
+/* Nunito reads visually larger than mkdocs-material's default Roboto at the
+   same declared size (rounder letterforms, bigger x-height) — scale content
+   text down to compensate, per request that "fonts are generally larger". */
+.md-typeset {
+  font-size: 0.7rem; /* mkdocs-material's own default is 0.8rem */
+}
+
+.md-typeset h1 {
+  font-family: "NunitoCustom", Nunito, sans-serif;
+  font-weight: 300; /* Light — titles */
+  color: var(--ramboll-ocean);
+}
+
+.md-typeset h2 {
+  font-family: "NunitoCustom", Nunito, sans-serif;
+  font-weight: 400; /* Regular — large headline */
+  color: var(--ramboll-ocean);
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "NunitoCustom", Nunito, sans-serif;
+  font-weight: 400; /* Regular — small headline */
+}
+
+.md-typeset small,
+.md-footer-meta {
+  font-weight: 400; /* Regular — small body text */
+}
+
+/* Native mkdocs-material header — solid ocean fill with white text/icons.
+   The injected .ramboll-portal-header strip above this (see below) stays
+   white, so the two bars read as deliberately distinct: brand nav on white,
+   page title/search on ocean. theme.logo is unset in every mkdocs.yml — the
+   Ramboll mark itself only lives in the injected strip above. */
+.md-header,
+.md-tabs {
+  background-color: var(--ramboll-ocean);
+  color: var(--ramboll-white);
+  border-bottom: none;
+  box-shadow: none;
+}
+.md-header__title,
+.md-header__topic,
+.md-header__button {
+  color: var(--ramboll-white) !important;
+}
+.md-header__button svg,
+.md-header__button.md-logo svg,
+.md-header__button.md-logo img {
+  fill: var(--ramboll-white) !important;
+  color: var(--ramboll-white) !important;
+}
+.md-search__input {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: var(--ramboll-white) !important;
+}
+.md-search__input::placeholder {
+  color: var(--ramboll-white) !important;
+  opacity: 0.75;
+}
+.md-search__icon svg,
+.md-search__form svg {
+  fill: var(--ramboll-white) !important;
+}
+
+/* Remove the right-hand "On this page" table-of-contents column everywhere —
+   requested to reduce visual clutter. Widen the content area into the space
+   it frees up. */
+.md-sidebar--secondary {
+  display: none !important;
+}
+.md-content {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+/* Sidebar nav and header title — same "Nunito reads larger" adjustment as
+   .md-typeset above, applied to the chrome outside the content column. */
+.md-nav {
+  font-size: 0.65rem;
+}
+.md-header__title {
+  font-size: 0.9rem;
+}
+
+/* "Python package · latest vX.Y.Z" badge next to the site name — added by
+   ramboll.js only on sites where window.RAMBOLL_PACKAGE_INFO is set (the
+   two published SDKs). */
+.ramboll-package-badge {
+  margin-left: 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 400;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* Left nav — back to mkdocs-material's own default grid width/centering.
+   Two earlier attempts to widen this (max-width: 100%, then max-width:
+   100rem, plus a hardcoded `.md-sidebar--primary { left: 0 }`) either broke
+   the header's internal layout or just didn't read better than the
+   original — per request, reverted to the stock default rather than
+   layering on a third variant. */
+.md-sidebar--primary .md-nav {
+  padding-left: 1rem;
+}
+
+/* "Getting started" and "Changelog" pronounced in the sidebar nav — class
+   added by ramboll.js since mkdocs.yml's nav: list has no per-item hook to
+   mark individual entries. */
+.md-nav__link.ramboll-nav-emphasis {
+  font-weight: 700;
+}
+
+/* Footer nav (prev/next boxes) — corporate cyan-20 (a deliberately stronger
+   tone than the cyan-10 used elsewhere, per request), ocean text with a
+   cyan hover state. Selectors matched against mkdocs-material's actual
+   generated markup (.md-footer__link etc.) — an earlier version of this
+   rule used ".md-footer-nav__*", which doesn't exist in the rendered DOM
+   and never matched anything. */
+.md-footer {
+  background-color: var(--ramboll-cyan-20);
+}
+.md-footer__link,
+.md-footer__title,
+.md-footer__direction {
+  color: var(--ramboll-ocean) !important;
+}
+.md-footer__link:hover .md-footer__title,
+.md-footer__link:hover .md-footer__direction,
+.md-footer__link:hover svg {
+  color: var(--ramboll-cyan) !important;
+  fill: var(--ramboll-cyan) !important;
+}
+.md-footer__button svg {
+  fill: var(--ramboll-ocean) !important;
+}
+
+/* Footer meta (copyright bar) — same thin-line, white/whitish treatment as
+   the portal's own footer, rather than the stronger cyan-20 used for the
+   prev/next boxes right above it. */
+.md-footer-meta {
+  background-color: var(--ramboll-white);
+  border-top: 1px solid rgba(5, 50, 110, 0.1);
+}
+.md-footer-meta,
+.md-copyright,
+.md-copyright__highlight,
+.md-copyright__highlight a {
+  color: var(--ramboll-ocean) !important;
+}
+
+/* Portal header strip — a close replica of the Astro portal's own header
+   (same brand link + nav order + static Ramboll mark), injected above
+   mkdocs-material's native header by ramboll.js (DOM insertion, not a
+   template override — safer without a way to visually verify a Jinja2
+   partial override beforehand). Deliberately NOT sticky — mkdocs-material's
+   own header is already position:sticky top:0, and stacking two sticky
+   elements both pinned to top:0 without knowing the exact rendered height
+   of each would risk overlap I can't verify visually. This scrolls away
+   with the page instead; the brand link inside it is this site's only way
+   back to the portal home, now that the sidebar's own separate "Portal
+   Home" entry has been removed as redundant. */
+/* Box-sizing/margin resets on the injected elements — mkdocs-material
+   doesn't load a CSS reset the way the Astro portal's Tailwind preflight
+   does, so browser-default <a>/<div> margins and line-heights were making
+   this bar noticeably taller than the portal's own header despite matching
+   padding values. */
+.ramboll-portal-header,
+.ramboll-portal-header * {
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 1.2;
+}
+.ramboll-portal-header {
+  background: var(--ramboll-white);
+  border-bottom: 1px solid rgba(5, 50, 110, 0.1);
+  font-family: "NunitoCustom", Nunito, Verdana, "Segoe UI", sans-serif;
+}
+.ramboll-portal-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  /* Matches mkdocs-material's own .md-grid (max-width: 61rem) and
+     .md-header__inner (padding: 0 .2rem) exactly, so this bar's content
+     lines up with the sidebar/content edges below it instead of using an
+     unrelated width that happened to look plausible. */
+  max-width: 61rem;
+  margin: 0 auto;
+  padding: 0.9rem 0.2rem;
+}
+.ramboll-portal-header__brand {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ramboll-ocean);
+  white-space: nowrap;
+}
+.ramboll-portal-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.65rem;
+  color: var(--ramboll-ocean);
+  flex-wrap: wrap;
+}
+.ramboll-portal-header__nav a {
+  color: var(--ramboll-ocean);
+  font-weight: 500;
+}
+.ramboll-portal-header__nav a:hover {
+  color: var(--ramboll-cyan);
+}
+.ramboll-portal-header__logo {
+  height: 1.25rem;
+  width: auto;
+  flex-shrink: 0;
+  /* Brand guide: exclusion zone of at least one logo-height on every side.
+     The container's own horizontal padding is intentionally tiny (0.2rem,
+     matching mkdocs-material's own grid so the bar lines up with the
+     sidebar/content below) — margin here gives the logo its own guaranteed
+     clearance from the column edge regardless of viewport width. */
+  margin-right: 1.25rem;
+}
+
+/* ---- Cards and buttons (Packages / Services grids) ---- */
+.md-typeset .md-button {
+  border-radius: 0.5rem;
+  border-width: 1.5px;
+  font-weight: 400;
+}
+.md-typeset .md-button:not(.md-button--primary) {
+  color: var(--ramboll-ocean);
+  border-color: var(--ramboll-ocean);
+}
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border-radius: 0.75rem;
+  border: 1.5px solid rgba(5, 50, 110, 0.35);
+  position: relative;
+}
+
+/* Version badge — injected by ramboll.js from each card's Artifactory link,
+   so the visible version always matches the link's own version, never a
+   separately hand-typed value. */
+.ramboll-version-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: var(--ramboll-cyan);
+  color: var(--ramboll-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+}
