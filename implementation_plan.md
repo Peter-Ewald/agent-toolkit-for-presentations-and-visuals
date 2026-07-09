@@ -12,14 +12,23 @@ dropped before any of it was built, in favor of a working Claude Code harness (`
 
 No wave is currently queued. The items below are useful follow-ups, not blocking anything:
 
-- Add smoke tests for the two Marp CLIs (`presentations/marp/tools/*.py`) and for
-  `.claude/skills/diagram-excalidraw/scripts/{elements,render}.py`.
-- Add CI or a local verification script that catches broken references between workflow docs
-  and capability files — a manual cross-reference sweep has already found stale paths drifting
-  silently more than once.
-- Define the minimum contract a new visual provider skill should follow (source format, theme
-  assets, render/export tool, provider-level workflow doc) using `diagram-excalidraw` as the
-  reference implementation, before adding a second provider (draw.io, matplotlib, ...). No second
-  provider is planned yet.
-- Drop the committed `presentations/marp/tools/__pycache__/` folder and add `__pycache__/` to
-  `.gitignore`.
+- **`presentation-marp` Claude Code skill.** `presentations/marp/` is still a plain capability
+  folder (theme, template, two bootstrap scripts) with no injected design methodology, unlike
+  `diagram-excalidraw`. A skill here would add: deck-narrative and slide-archetype guidance (when
+  to reach for lead/bullets/image-right/full-image/statement/split, from `ramboll_default.md`),
+  and a render-and-view loop using `npx @marp-team/marp-cli`'s existing PNG/PDF export (used ad
+  hoc today, not wired into any script) — mirroring the discipline that keeps
+  `diagram-excalidraw`'s output correct. Follow `docs/provider-contract.md`'s shape where it
+  applies to a non-visual-diagram provider; deviate explicitly where slide decks don't fit it
+  (e.g. no binding-style structural invariant to enforce).
+- **Combined diagram-creation + deck-integration workflow.** Composing the two skills for one task
+  ("build this diagram and drop it into that deck") is deliberately not a third skill — it's what
+  `workflows/combined/README.md` exists for, per `docs/workflow-layer.md`'s own definition. That
+  file currently only lists recipe types and implementation surfaces; it needs the actual step
+  sequence (build/update diagram → render → embed the PNG path in deck markdown → re-apply deck
+  theme) written out, plus a short cross-reference from each skill's own `SKILL.md` pointing at it
+  for the composed case.
+- Extend `docs/brand/sync_to_consumers.py`'s `write_excalidraw_theme`/`write_marp_theme_colors`/
+  `write_excalidraw_font_face` to accept a parameterized output path, so `tests/unit/
+  test_sync_to_consumers.py` can cover them without mutating real repo files as a side effect of
+  running the suite (see that test file's module docstring for the current gap).

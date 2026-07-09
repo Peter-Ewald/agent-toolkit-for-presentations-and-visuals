@@ -34,7 +34,8 @@ Ownership boundaries:
 - `.claude/skills/` owns reusable visual providers that need their own design
   methodology — currently `diagram-excalidraw`, covering Excalidraw theming
   and render pipelines. A provider that's just scripts and assets without a
-  methodology worth injecting doesn't need to be a skill.
+  methodology worth injecting doesn't need to be a skill. See
+  `docs/provider-contract.md` for the minimum shape a new provider must have.
 - `.claude/hooks/` owns enforcement for invariants a capability can't leave to
   discipline alone — currently `validate_excalidraw_bindings.py`, which blocks
   a `.excalidraw` edit that breaks native bindings, however the edit was made.
