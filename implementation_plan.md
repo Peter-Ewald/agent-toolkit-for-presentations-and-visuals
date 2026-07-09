@@ -32,3 +32,14 @@ No wave is currently queued. The items below are useful follow-ups, not blocking
   `write_excalidraw_font_face` to accept a parameterized output path, so `tests/unit/
   test_sync_to_consumers.py` can cover them without mutating real repo files as a side effect of
   running the suite (see that test file's module docstring for the current gap).
+- Document a VS Code Test Explorer gotcha in `tests/README.md`: after switching the workspace's
+  Python interpreter to `.venv` (e.g. via the interpreter picker), the Testing panel can keep
+  showing no tests even though `.venv/bin/python -m pytest --collect-only` finds all of them from
+  a terminal — the extension's test-discovery process caches the interpreter it started with and
+  doesn't always re-run discovery on a plain interpreter switch. Before reaching for a full window
+  reload, try, in order: (1) the refresh icon in the Testing panel (or Command Palette → "Test:
+  Refresh Tests") — cheapest, sometimes enough on its own; (2) Command Palette → "Python: Configure
+  Tests" → pytest → `tests` — re-runs the test configuration wizard against the currently-selected
+  interpreter, forcing a real re-discovery instead of relying on cached state. If neither populates
+  the panel, "Developer: Reload Window" is the reliable fix — the discovery subprocess only fully
+  picks up a new interpreter on a fresh start.
