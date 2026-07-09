@@ -10,28 +10,7 @@ dropped before any of it was built, in favor of a working Claude Code harness (`
 
 ---
 
-## Recommended Wave Progression
-
-1. **Workflows layer refresh.** `workflows/*/README.md` currently routes to capability entry
-   points that have already drifted once (`workflows/visualisations/README.md` lists
-   `apply_theme.py`/`render.py` as the two command-level entry points but not `elements.py`,
-   which is actually where every diagram build starts now, or `setup.sh`) — a symptom of
-   `workflows/` staying prose-only with nothing checking it against the capability layer it
-   describes. This wave:
-   - Rewrites every `workflows/*/README.md` command-level entry point list against what each
-     capability actually exposes today, including `elements.py` and
-     `.claude/skills/diagram-excalidraw/scripts/setup.sh`.
-   - Adds a `workflows/` recipe pointing at `setup.sh`, so "set this repo up" is itself a
-     documented task, not something only the skill's own `README.md` mentions.
-   - Decides, and documents the decision either way, whether each workflow family gets a real
-     one-command helper script or stays a documentation-only routing layer on purpose — and
-     updates `docs/workflow-layer.md` to state that decision explicitly instead of leaving it open.
-
----
-
-## Later Considerations
-
-These items are useful but not blocking the wave progression above:
+No wave is currently queued. The items below are useful follow-ups, not blocking anything:
 
 - Add smoke tests for the two Marp CLIs (`presentations/marp/tools/*.py`) and for
   `.claude/skills/diagram-excalidraw/scripts/{elements,render}.py`.

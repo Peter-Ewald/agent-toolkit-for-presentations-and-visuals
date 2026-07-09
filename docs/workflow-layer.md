@@ -40,6 +40,22 @@ How workflows should be written:
 - Avoid duplicating the underlying tool documentation unless the workflow needs
   task-specific framing.
 
+Automation level:
+
+- `workflows/` is a documentation-only routing layer, deliberately, not a layer of its own
+  scripts. Each recipe names the task and points at the exact capability entry point that does
+  it — it doesn't wrap that entry point in a second script.
+- This holds even where a task-specific wrapper script would be technically easy to add: the Marp
+  side is already one command per task (`presentations/marp/tools/*.py`), so a wrapper would only
+  duplicate that command and need to be kept in sync with it. The Excalidraw side is deliberately
+  *not* one command — diagram creation is a supervised, iterative design process (see the
+  `diagram-excalidraw` skill's own `SKILL.md`), and flattening it into a single script would
+  misrepresent it as mechanical and invite skipping the render-and-validate loop that keeps
+  diagrams correct.
+- If a future capability genuinely is a multi-step process better run as one command than
+  described in prose, add that automation to the capability layer itself (as a script alongside
+  the tools it composes), not to `workflows/`.
+
 Routing rule:
 
 - If the user asks for a concrete action or deliverable, start in `workflows/`.

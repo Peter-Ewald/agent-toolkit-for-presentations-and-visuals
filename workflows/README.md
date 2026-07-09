@@ -8,7 +8,8 @@ change.
 Workflow families:
 
 - `presentations/`: create, update, and theme decks
-- `visualisations/`: create, theme, and render reusable visuals
+- `visualisations/`: create, theme, and render reusable visuals — start here if this is your
+  first time using the repo, for the one-time environment setup recipe
 - `combined/`: workflows that update both visual assets and decks
 
 Rule:
